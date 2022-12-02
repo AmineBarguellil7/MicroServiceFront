@@ -1,0 +1,10 @@
+<form (ngSubmit)="addEquipe()">
+    <label>
+        Nom Equipe : <input [(ngModel)]="equipe.nomEquipe" name="nomEquipe" class="form-control"/>
+      </label>
+      <label>
+        Niveau : <input [(ngModel)]="equipe.niveau" name="niveau" class="form-control" />
+      </label>
+    
+      <button type="submit">Submit</button>  
+</form>
