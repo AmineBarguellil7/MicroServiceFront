@@ -1,6 +1,3 @@
-
-
-
 <div class="wrapper">
 
   <!-- Preloader -->
@@ -16,10 +13,10 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a routerLink="/home" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a routerLink="/departement" class="nav-link">departement</a>
       </li>
     </ul>
 
@@ -27,7 +24,7 @@
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
       <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+        <a class="nav-link" data-widget="navbar-search" routerLink="#" role="button">
           <i class="fas fa-search"></i>
         </a>
         <div class="navbar-search-block">
@@ -119,13 +116,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a routerLink="addequipe" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Ajouter Equipe</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
+                <a routerLink="equipes" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Afficher Liste d'Equipes</p>
                 </a>
@@ -149,13 +146,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/UI/general.html" class="nav-link">
+                <a routerLink="/departement" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Ajouter Departement</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/UI/icons.html" class="nav-link">
+                <a routerLink="/listeDepartements" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Afficher Liste Departements</p>
                 </a>
@@ -222,19 +219,24 @@
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-  <!--
-  <br><br><br>
-  <body>
     
+  </aside>
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+   
+    <!-- /.content-header -->
 
-  <section class="container">
-    <div>
-      <app-equipe></app-equipe>
-    </div>
-  </section>
-</body> -->
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <router-outlet></router-outlet>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.control-sidebar -->
   <!-- Main Footer -->
   <footer class="main-footer">
     
@@ -244,7 +246,3 @@
   </footer>
 </div>
 <!-- ./wrapper -->
-
-
-
-<router-outlet></router-outlet>

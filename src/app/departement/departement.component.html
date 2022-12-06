@@ -1,0 +1,28 @@
+<div class="d-flex justify-content-center align-items-center container">
+    <div class="row">
+            <form (ngSubmit)="addDepartement()"  #f="ngForm">
+                <div class="form-group" ngModelGroup="departementData" #departementData="ngModelGroup">
+                <label for="nomDepart">nomDepart:</label>
+                <input type="text" class="form-control" name="nomDepart" [(ngModel)]="departement.nomDepart" required  minlength="3" pattern="[a-zA-Z]*" #nomD="ngModel" placeholder="entrer un nom de département" >
+                <span class="help-block" *ngIf="!nomD.valid && nomD.touched" style="color:red">entrer un nom de département valide!</span>
+                <br>
+                <label for="emp">emplacement:</label>
+                <input type="text" class="form-control" name="emplacement" [(ngModel)]="departement.emplacement" required minlength="3" pattern="[a-zA-Z0-9]*"  #emp="ngModel"  placeholder="entrer un emplacement" [disabled]="!nomD.valid">
+                <button class="btn btn-primary" style="margin-top:10px;" (click)="SuggestEmplacement()" type="button">proposer un emplacement</button>
+                <br>
+                <span class="help-block" *ngIf="!emp.valid && emp.touched" style="color:red;">entrer un emplacement valide!</span>
+                <br>
+                <label for="prix">prix:</label>
+                <input type="text" class="form-control" name="prix" [(ngModel)]="departement.prix" required minlength="3" pattern="[0-9]*.[0-9]*" placeholder="entrer un prix" #prix="ngModel" [disabled]="!emp.valid">
+                <span class="help-block" *ngIf="!prix.valid && prix.touched" style="color:red;">entrer un prix valide!</span>
+                <br>
+                <label for="surface">surface:</label>
+                <input type="text" class="form-control" name="surface" [(ngModel)]="departement.surface" required  pattern="[0-9]*.[0-9]*" placeholder="entrer une surface" #surface="ngModel" [disabled]="!prix.valid">
+                <span class="help-block" *ngIf="!surface.valid && surface.touched" style="color:red;">entrer une surface valide!</span>
+                </div>
+                <p *ngIf="!departementData.valid && departementData.touched"  [ngClass]="{DataError:!departementData.valid && departementData.touched}">les donnees du departement sont invalides</p>
+                <button  [disabled]="!f.valid" type="submit" class="btn btn-primary" id="B1">Ajouter</button>
+                <button (click)="afficherListeDep()" class="btn btn-success">Afficher Liste Departements</button>
+            </form>
+        </div>
+ </div>
