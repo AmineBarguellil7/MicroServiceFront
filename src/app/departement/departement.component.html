@@ -20,7 +20,7 @@
                 <input type="text" class="form-control" name="surface" [(ngModel)]="departement.surface" required  pattern="[0-9]*.[0-9]*" placeholder="entrer une surface" #surface="ngModel" [disabled]="!prix.valid">
                 <span class="help-block" *ngIf="!surface.valid && surface.touched" style="color:red;">entrer une surface valide!</span>
                 </div>
-                <p *ngIf="!departementData.valid && departementData.touched"  [ngClass]="{DataError:!departementData.valid && departementData.touched}">les donnees du departement sont invalides</p>
+                <a href="#"><p *ngIf="!departementData.valid && departementData.touched"  [ngClass]="{DataError:!departementData.valid && departementData.touched}">les donnees du departement sont invalides</p></a>
                 <button  [disabled]="!f.valid" type="submit" class="btn btn-primary" id="B1">Ajouter</button>
                 <button (click)="afficherListeDep()" class="btn btn-success">Afficher Liste Departements</button>
             </form>

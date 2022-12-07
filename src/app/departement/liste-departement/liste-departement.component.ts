@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component,OnInit} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Departement } from 'src/app/models/Departement';
 import { DataService } from 'src/app/service/data.service';
 import Swal from 'sweetalert2';
+
+
 
 @Component({
   selector: 'app-liste-departement',
@@ -11,6 +13,8 @@ import Swal from 'sweetalert2';
 })
 export class ListeDepartementComponent implements OnInit {
 
+  nom:string="";
+  Id:number;
   departement:Departement=new Departement();
   departementAmodifier={
     nomDepart:"",
@@ -19,7 +23,7 @@ export class ListeDepartementComponent implements OnInit {
     surface:""
   };
   listDepartements:any;  
-  constructor(private departementService:DataService,private router:Router) { }
+  constructor(private departementService:DataService,private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     console.log(this.listDepartements);
@@ -54,6 +58,28 @@ export class ListeDepartementComponent implements OnInit {
         this.departementService.deleteDepartement(departement.idDepart).subscribe((res)=>this.departementService.getListDepartements().subscribe(res=>this.listDepartements=res));
         }
     })
+  }
+  ShowDetails(id:number,nomDepart:string,emplacement:string,surface:string,prix:string) {
+    this.router.navigate(['/listeDepartements/'+id,nomDepart,emplacement,surface,prix]);
   }    
-  
+
+  SearchDepartementById(Id:any) {
+    this.departementService.getDepartementById(Id).subscribe((res)=>{
+      this.listDepartements=[res];
+      setTimeout(() => {
+       this.listDepartements=this.departementService.getListDepartements().subscribe((res)=>this.listDepartements=res);
+      },3000)
+    });
+  }
+  TestStatus(nomD:string) {
+    if (nomD=="") {
+      return false;
+    }
+    if (nomD.startsWith(this.nom)) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
 }

@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { DepartementComponent } from './departement/departement.component';
-import { ListeDepartementComponent } from './departement/liste-departement/liste-departement.component';
 import { NotFoundComponent } from './departement/not-found/not-found.component';
+import { DepartementModule } from './departement/departement.module';
+
+
+
 
 
 
@@ -16,10 +18,7 @@ import { NotFoundComponent } from './departement/not-found/not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
-    DepartementComponent,
-    ListeDepartementComponent,
     NotFoundComponent
-
   ],
   imports: [
     BrowserModule,
@@ -28,7 +27,8 @@ import { NotFoundComponent } from './departement/not-found/not-found.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DepartementModule
   ],
   providers: [],
   bootstrap: [AppComponent]

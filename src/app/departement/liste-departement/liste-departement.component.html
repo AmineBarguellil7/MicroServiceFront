@@ -1,5 +1,15 @@
+<br>
+<form class="form-inline my-2 my-lg-0" (ngSubmit)="SearchDepartementById(Id)">
+  <input class="form-control mr-sm-2" type="search" placeholder="Rechercher Par id" aria-label="Search" [(ngModel)]="Id" name="SearchInput">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche Par id</button>
+</form>
+<br>
+<form class="form-inline my-2 my-lg-0">
+  <input class="form-control mr-sm-2" type="text" placeholder="Rechercher Par nom" aria-label="Search" [(ngModel)]="nom" name="SearchInputNom">
+</form>
 <div class="d-flex justify-content-center align-items-center container ">
-    <div class="row ">
+<div class="row">
+<div>
 <table class="table table-striped table-dark">
     <thead>
         <tr>
@@ -10,10 +20,11 @@
             <td>prix</td>
             <td>Modifier</td>
             <td>Supprimer</td>
+            <td>Afficher Detail departement</td>
         </tr>
     </thead>
     <tbody>   
-    <tr *ngFor="let departement of listDepartements">
+    <tr *ngFor="let departement of listDepartements" [hidden]="TestStatus(departement.nomDepart)">
         <td>{{departement.idDepart}}</td>
         <td>{{departement.nomDepart}}</td>
         <td>{{departement.emplacement}}</td>
@@ -23,11 +34,14 @@
             Modifier
         </button></td>
         <td><button class="btn btn-danger" (click)="deleteDepartement(departement)">Supprimer</button></td>
+        <td><button class="btn btn-info" (click)="ShowDetails(departement.idDepart,departement.nomDepart,departement.emplacement,departement.surface,departement.prix)">Afficher Details departement</button></td>
     </tr>
     </tbody>
 </table>
+<router-outlet></router-outlet>
 </div>
 </div>
+
 
 
 <!-- Modal -->

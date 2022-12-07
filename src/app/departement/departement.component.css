@@ -7,6 +7,6 @@ input.ng-invalid {
 input.ng-valid {
 border: 1px solid green;
 }
-.DataError{
+.DataError:hover{
 font-size: large;
 }
