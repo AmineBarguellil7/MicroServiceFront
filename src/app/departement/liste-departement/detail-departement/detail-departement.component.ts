@@ -30,5 +30,4 @@ export class DetailDepartementComponent implements OnInit {
       prix:this.route.snapshot.params['prix']
     }})
   }
-
 }

@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 export class ListeDepartementComponent implements OnInit {
 
   nom:string="";
-  Id:number;
+  Id:string="";
   departement:Departement=new Departement();
   departementAmodifier={
     nomDepart:"",
@@ -39,40 +39,56 @@ export class ListeDepartementComponent implements OnInit {
     (err)=>{console.log(err)};
   }
   deleteDepartement(departement:any) {
-    Swal.fire({
-      title: 'Voulez vous vraiment supprimer ce département de façon permanente?',
-      text: "Vous ne pourrez pas revenir en arrière !",
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: true
+    })
+    
+    swalWithBootstrapButtons.fire({
+      title: 'Vous Etes sur?',
+      text: "vous ne pouvez pas revenir en arrière!",
       icon: 'warning',
+      confirmButtonText: 'Oui',
+      cancelButtonText: 'Annuler',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'oui',
-      cancelButtonText:'annuler'
+      reverseButtons: false
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(
+        swalWithBootstrapButtons.fire(
           'Supprimé!',
-          'Fichier supprimé',
+          'Departement supprimé',
           'success'
         )
         this.departementService.deleteDepartement(departement.idDepart).subscribe((res)=>this.departementService.getListDepartements().subscribe(res=>this.listDepartements=res));
-        }
+      } else if (
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Annulé',
+          'Departement non supprimé',
+          'error'
+        )
+      }
     })
   }
   ShowDetails(id:number,nomDepart:string,emplacement:string,surface:string,prix:string) {
     this.router.navigate(['/listeDepartements/'+id,nomDepart,emplacement,surface,prix]);
   }    
 
-  SearchDepartementById(Id:any) {
-    this.departementService.getDepartementById(Id).subscribe((res)=>{
-      this.listDepartements=[res];
-      setTimeout(() => {
-       this.listDepartements=this.departementService.getListDepartements().subscribe((res)=>this.listDepartements=res);
-      },3000)
-    });
+  SearchDepartementById(id:string) {
+    if (this.Id=="") {
+      return true;
+    }
+    if (id==this.Id) {
+      return true;
+    }
+    return false;
   }
   TestStatus(nomD:string) {
-    if (nomD=="") {
+    if (this.nom=="") {
       return false;
     }
     if (nomD.startsWith(this.nom)) {
@@ -81,5 +97,16 @@ export class ListeDepartementComponent implements OnInit {
     else {
       return true;
     }
+  }
+
+  TriSurface() {
+    this.listDepartements.sort((a, b) => a.surface - b.surface);
+  }
+
+  AfficherList() {
+    this.departementService.getListDepartements().subscribe((res)=>this.listDepartements=res);
+  }
+  TriEmplacement() {
+    this.listDepartements.sort(function(a,b) { return a.emplacement.localeCompare(b.emplacement)});
   }
 }
