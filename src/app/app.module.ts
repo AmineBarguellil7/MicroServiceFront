@@ -7,7 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponent } from './departement/not-found/not-found.component';
-import { DepartementModule } from './departement/departement.module';
+
+
 
 
 
@@ -27,8 +28,7 @@ import { DepartementModule } from './departement/departement.module';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule,
-    DepartementModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
