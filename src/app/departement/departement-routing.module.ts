@@ -10,7 +10,7 @@ import { NotFoundComponent } from "./not-found/not-found.component";
 const routes:Routes=[
 {path:"listeDepartements",component:ListeDepartementComponent,children:[{path:":id:/:nom/:surface/:emplacement/:prix",component:DetailDepartementComponent}]},{path:"departement",component:DepartementComponent},
 {path:"departement-reactive",component:DepartementReactiveComponent},
-{path:'**', component:NotFoundComponent}]
+]
 
 @NgModule({
 imports:[
