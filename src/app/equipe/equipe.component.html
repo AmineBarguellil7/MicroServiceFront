@@ -1,74 +1,64 @@
 <h1>Ajouter nouvelle equipe</h1>
 <div class="d-flex justify-content-center align-items-center container mt-5">
-<form #f="ngForm" (ngSubmit)="f.form.valid && addEquipe(f.value)">
-  <div ngModelGroup="firstInfo" #sg="ngModelGroup">
-  <div class="form-group">
-    <label>
-        Nom Equipe : <input type="text" name="nomEquipe"
-        #nomEquipe="ngModel"  [(ngModel)]="equipe.nomEquipe" required minlength="3" pattern="[a-zA-Z]*"
-         class="form-control"  id="nomEquipe" placeholder="Enter Nom d'equipe"/>
-      </label>
-    </div>
- 
-   
-    
-        <div *ngIf="nomEquipe.invalid  && f.submitted" class="alert alert-danger" role="alert">
-            Nom d'equipe est obligatoire !
+  <form [formGroup]="form" (ngSubmit)="addEquipe()">
+      <div class="form-group">
+        <label>Nom d'equipe : 
+        <input type="text" formControlName="nomEquipe" name="nomEquipe" class="form-control" placeholder="Enter nom d'equipe" [ngClass]="{'is-invalid' : submitted && myControls['nomEquipe'].errors}">
+    </label>
+        <div *ngIf="submitted && myControls['nomEquipe'].errors"  class="invalid-feedback" class="alert alert-danger" role="alert">
+            
+            <div *ngIf="myControls['nomEquipe'].errors['required']" >
+              Nom d'equipe est obligatoire !
+            </div>
+            <div *ngIf="myControls['nomEquipe'].hasError('pattern')" >
+              Nom d'equipe ne doit contient que des lettres !
           </div>
-          <div *ngIf = "nomEquipe.hasError('minlength') && !nomEquipe.hasError('required')" class = "alert alert-danger">
-            <span>Nombre de lettres minimale est 3</span>
-          </div>  
-         <div *ngIf="nomEquipe.hasError('pattern')" class="alert alert-danger" role="alert">
-            Tous sont des lettres
-         </div>
-    
-        
+          <div *ngIf="myControls['nomEquipe'].errors?.['minLength']" >
+              Nom d'equipe doit avoir 3 lettres au minimale !
+          </div>
+        </div>
+    </div>
+  
+      <div class="form-group">
+        <label for="niveau">Niveau : 
+        <select type="text" formControlName="niveau" name="thematique" class="form-control" placeholder="Enter niveau" [ngClass]="{'is-invalid' :submitted && myControls['niveau'].errors}">
+          <option value="JUNIOR" >JUNIOR</option>
+              <option value="SENIOR">SENIOR</option>
+              <option value="EXPERT">EXPERT</option>
+        </select>
+    </label>
+        <div *ngIf="submitted && myControls['niveau'].errors" class="invalid-feedback" class="alert alert-danger" role="alert">
+            <div *ngIf="myControls['niveau'].errors?.['required']">
+              niveau est obligatoire !
+            </div>        
+        </div>   
+    </div>
+  
     <div class="form-group">
-      <label>
-        Niveau : <select  name="niveau"
-        #niveau="ngModel" ngModel  [(ngModel)]="equipe.niveau" [ngClass]="class" required  id="niveau" placeholder="Enter Niveau">
-            <option value="JUNIOR" >JUNIOR</option>
-            <option value="SENIOR">SENIOR</option>
-            <option value="EXPERT">EXPERT</option>
-            </select>
-            <div *ngIf="niveau.invalid  && f.submitted" class="alert alert-danger" role="alert">
-               
-                    Niveau est obligatoire !
-                 
-                </div>
-      </label>
-
-    </div>
-  </div>  
-
-    
-    
-
-
-  <!--
-  -->
-  <div *ngIf="sg.valid">
-  <div class="form-group">
-    <label>
-        Salle : <input type="number" name="salle"
-        #salle="ngModel"  [(ngModel)]="equipe.salle" required min="1" max="10"
-         class="form-control"  id="salle"/>
-      </label>
-    </div>
-  <div class="form-group">
-    <label for="dateCreation">Date de creation : <input type="date" name="dateCreation" class="form-control" #dateCreation="ngModel"  [(ngModel)]="equipe.dateCreation" required></label>
-    <div *ngIf="dateCreation.invalid  && f.submitted" class="alert alert-danger" role="alert">
-               
-      date de creation est obligatoire !
-   
+      <label for="salle">Salle : 
+      <input type="number"  min="1" max="10" required  formControlName="salle" name="salle" class="form-control" placeholder="Enter salle" [ngClass]="{'is-invalid' :submitted && myControls['salle'].errors}">
+  </label>
+      <div *ngIf="submitted && myControls['salle'].errors" class="invalid-feedback" class="alert alert-danger" role="alert">
+          <div *ngIf="myControls['salle'].errors?.['required']">
+              salle est obligatoire !
+          </div>        
+      </div>   
   </div>
-</div>
-
-
-
-</div>
-<button type="submit" class="btn-primary btn-sm" >Submit</button>
-
-</form>
-
-</div>
+  
+  <div class="form-group">
+      <label for="dateCreation">Date de creation : 
+      <input type="date" formControlName="dateCreation" name="dateCreation" class="form-control" placeholder="Enter date de creation" [ngClass]="{'is-invalid' :submitted && myControls['dateCreation'].errors}">
+  </label>
+      <div *ngIf="submitted && myControls['dateCreation'].errors" class="invalid-feedback" class="alert alert-danger" role="alert">
+          <div *ngIf="myControls['dateCreation'].errors?.['required']">
+            date de creation est obligatoire !
+          </div>        
+      </div>   
+  </div>
+  
+  
+    <button type="submit" class="btn-primary btn-sm"  >Submit</button>
+    </form>
+   
+  
+   </div>

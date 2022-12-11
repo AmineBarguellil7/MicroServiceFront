@@ -9,11 +9,11 @@ import { Equipe } from '../models/equipe';
   providedIn: 'root'
 })
 export class DataService {
-  public getdepartementUrl="http://localhost:9091/departement";
-  public AjoutdepartementUrl='http://localhost:9091/departement/add';
-  public UpdatedepartementUrl="http://localhost:9091/departement/update";
-  public DeletedepartementUrl="http://localhost:9091/departement/delete/";
-  public getdepartementByIdUrl="http://localhost:9091/departement/read_T/"
+  public getdepartementUrl="http://localhost:8081/departement";
+  public AjoutdepartementUrl='http://localhost:8081/departement';
+  public UpdatedepartementUrl="http://localhost:8081/departement";
+  public DeletedepartementUrl="http://localhost:8081/departement/";
+  public getdepartementByIdUrl="http://localhost:8081/departement/"
   public ahmedUrl = 'http://localhost:8081/equipe';
   constructor(private http:HttpClient) { }
 addEquipe(equipe?: Equipe): Observable<Object>{

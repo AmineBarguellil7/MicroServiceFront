@@ -15,7 +15,7 @@ export class EquipeComponent implements OnInit {
  res:any;
  class="form-control"
   toastInstance: any;
-  myForm:FormGroup;
+  form:FormGroup;
 
   submitted = false ;
   equipes:any;
@@ -34,18 +34,16 @@ export class EquipeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.myForm=new FormGroup({
-      equipe:new FormControl('',Validators.required),
-      salle:new FormControl('', Validators.required),
-      thematique:new FormControl('', [Validators.required, Validators.minLength(5), Validators.pattern("[a-zA-Z]*")]),
-      
-  
-    })
+    this.form = new FormGroup({
+      nomEquipe:new FormControl ('', [Validators.required,Validators.pattern("[a-zA-Z]*"),Validators.minLength(3)]),
+      niveau:new FormControl ('', Validators.required),
+      salle:new FormControl ('', Validators.required),
+      dateCreation:new FormControl ('', Validators.required)});
   this.getEquipes;}
     
     get myControls(){
       
-        return this.myForm.controls;
+        return this.form.controls;
   }
 
   getEquipes(){
@@ -54,18 +52,23 @@ export class EquipeComponent implements OnInit {
     }
       );
   }
-  addEquipe(f){
-    console.log(this.equipe);
+  addEquipe(){
     
     this.submitted = true ;
-      this.dataService.addEquipe(this.equipe).subscribe({
-        next:(data:any)=>{
+    if(this.form.invalid){
+      return;
+    }
+      this.dataService.addEquipe(this.form.value).subscribe({
+        next:(res:any)=>{
           
-          this.toastInstance.fire({
+          Swal.fire({
+            position: 'center',
             icon: 'success',
-            title: "Equipe ajoutée avec succes"
-        });
-          this.data =data ;
+            title: 'Ajout avec succés',
+            showConfirmButton: false,
+            timer: 1000
+          })
+          this.data =res ;
         },
         error:(err:any)=>{
           this.toastInstance.fire({
@@ -74,7 +77,9 @@ export class EquipeComponent implements OnInit {
         });      },
        
       }) 
+      this.submitted = false ;
     }
     
-}
+  }
+
 

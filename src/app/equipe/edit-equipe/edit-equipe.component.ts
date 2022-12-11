@@ -13,6 +13,7 @@ export class EditEquipeComponent implements OnInit {
   form:FormGroup;
   submitted = false;
   data:any;
+  class="form-control"
   equipe = new Equipe();
   equipes:any;
   idT:any;
@@ -34,11 +35,7 @@ export class EditEquipeComponent implements OnInit {
   
   ngOnInit(): void {
     this.idT = this.route.snapshot.params['idT'];
-      this.form = new FormGroup({
-       nomEquipe:new FormControl ('', [Validators.required,Validators.minLength(3),Validators.pattern("[a-zA-Z]*")]),
-       niveau:new FormControl ('', Validators.required),
-       salle:new FormControl ('', Validators.required),
-       dateCreation:new FormControl ('', Validators.required)});
+      
       
         this.getEquipe();
         
@@ -47,7 +44,7 @@ export class EditEquipeComponent implements OnInit {
     return this.form.controls;
   }
   update(){ 
-    this.submitted = true ;
+    
       this.dataService.updateEquipe(this.equipe).subscribe({
         next:(data:any)=>{
           
