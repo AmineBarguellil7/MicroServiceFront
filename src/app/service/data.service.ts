@@ -9,12 +9,12 @@ import { Equipe } from '../models/equipe';
   providedIn: 'root'
 })
 export class DataService {
-  public getdepartementUrl="http://localhost:8081/departement";
-  public AjoutdepartementUrl='http://localhost:8081/departement';
-  public UpdatedepartementUrl="http://localhost:8081/departement";
-  public DeletedepartementUrl="http://localhost:8081/departement/";
-  public getdepartementByIdUrl="http://localhost:8081/departement/"
-  public ahmedUrl = 'http://localhost:8081/equipe';
+  public getdepartementUrl="http://localhost:8082/departement";
+  public AjoutdepartementUrl='http://localhost:8082/departement';
+  public UpdatedepartementUrl="http://localhost:8082/departement";
+  public DeletedepartementUrl="http://localhost:8082/departement/";
+  public getdepartementByIdUrl="http://localhost:8082/departement/"
+  public ahmedUrl = 'http://localhost:8082/equipe';
   constructor(private http:HttpClient) { }
 addEquipe(equipe?: Equipe): Observable<Object>{
   return this.http.post<Object>(`${this.ahmedUrl}`, equipe) ;
@@ -23,13 +23,13 @@ getEquipes (){
   return this.http.get(this.ahmedUrl) ;
 }
 deleteEquipe(idT: any){
-  return this.http.delete('http://localhost:8081/equipe/'+idT) ;
+  return this.http.delete('http://localhost:8082/equipe/'+idT) ;
 }
 updateEquipe(data: any){
-  return this.http.put('http://localhost:8081/equipe/',data) ;
+  return this.http.put('http://localhost:8082/equipe/',data) ;
 }
 getEquipeById(idT: any){
-  return this.http.get('http://localhost:8081/equipe/'+idT) ;
+  return this.http.get('http://localhost:8082/equipe/'+idT) ;
 }
 
 

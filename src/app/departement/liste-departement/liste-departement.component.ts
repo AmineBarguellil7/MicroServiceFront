@@ -35,8 +35,21 @@ export class ListeDepartementComponent implements OnInit {
   }
 
   ModifierDepartement() {
-    this.departementService.UpdateDepartement(this.departementAmodifier).subscribe((res)=>{console.log(res)}),
+    Swal.fire({
+      title: 'Souhaitez-vous enregistrer les modifications ?',
+      showDenyButton: true,
+      confirmButtonText: 'enregistrer',
+      denyButtonText: `annuler`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire('modification avec succès!', '', 'success')
+        this.departementService.UpdateDepartement(this.departementAmodifier).subscribe((res)=>{console.log(res)}),
     (err)=>{console.log(err)};
+      } else if (result.isDenied) {
+        this.departementService.getListDepartements().subscribe((res)=>this.listDepartements=res);
+        Swal.fire('les modifications ne sont pas enregistrées', '', 'info')
+      }
+    })
   }
   deleteDepartement(departement:any) {
     const swalWithBootstrapButtons = Swal.mixin({
