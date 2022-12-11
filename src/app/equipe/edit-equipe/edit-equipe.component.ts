@@ -19,17 +19,6 @@ export class EditEquipeComponent implements OnInit {
   idT:any;
   toastInstance: any;
   constructor(private formBuilder: FormBuilder, private dataService: DataService, private router:Router,private route:ActivatedRoute) { 
-    this.toastInstance = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer)
-          toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-  });
   }
   
   
@@ -48,10 +37,19 @@ export class EditEquipeComponent implements OnInit {
       this.dataService.updateEquipe(this.equipe).subscribe({
         next:(data:any)=>{
           
-          this.toastInstance.fire({
-            icon: 'success',
-            title: "Equipe est à jour "
-        });
+          Swal.fire({
+            title: 'Votre Equipe Est à Jour',
+            width: 600,
+            padding: '3em',
+            color: '#716add',
+            background: '#fffff',
+            backdrop: `
+              rgba(0,0,123,0.4)
+              url("assets/img/cat-space.gif")
+              left top
+              no-repeat
+            `
+          });
           this.data =data ;
         },
         error:(err:any)=>{
