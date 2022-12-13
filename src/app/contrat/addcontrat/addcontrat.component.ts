@@ -44,7 +44,7 @@ export class   AddcontratComponent implements OnInit {
     specialite:new FormControl ('',[Validators.required]),
     
   });
-this.getContrats();
+ this.getContrats();
   }
   get myControls() {
     return this.contratForm.controls;
