@@ -15,12 +15,6 @@ export class AfficherListComponent implements OnInit {
   constructor(private departementService:DataService) { }
 
   ngOnInit(): void {
-    this.signupform=new FormGroup({
-      'nomDepart':new FormControl(null,Validators.required),
-      'surface':new FormControl('0',Validators.required),
-      'emplacement':new FormControl('AlManar',Validators.required),
-      'prix':new FormControl('0',Validators.required)
-    })
     this.departementService.getListDepartements().subscribe((res)=>this.departementsList=res);
   }
 

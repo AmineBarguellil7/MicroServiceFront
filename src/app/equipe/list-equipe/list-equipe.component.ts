@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Equipe } from '../../models/equipe';
 import { DataService } from '../../service/data.service';
 
+
 @Component({
   selector: 'app-list-equipe',
   templateUrl: './list-equipe.component.html',
@@ -14,13 +15,14 @@ equipe = new Equipe();
 details:any;
 nomEquipe:any;
 p:number=1 ;
+
   constructor(private Route:ActivatedRoute, private dataService: DataService, private router:Router) { }
 
   
   ngOnInit(): void {
     this.getEquipes();
-
     
+  
   }
   getEquipes(){
     this.dataService.getEquipes().subscribe(res => {

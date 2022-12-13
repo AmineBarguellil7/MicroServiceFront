@@ -10,13 +10,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { EquipeItemComponent } from './equipe-item/equipe-item.component';
+import { AfficherEquipeComponent } from './afficher-equipe/afficher-equipe.component';
 
 
 
 @NgModule({
   declarations: [   EquipeComponent,
     ListEquipeComponent,
-    EditEquipeComponent],
+    EditEquipeComponent,
+    EquipeItemComponent,
+    AfficherEquipeComponent],
   imports: [
     CommonModule,
     EquipeRoutingModule,
@@ -30,7 +34,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
   ],
   exports:[EquipeComponent,
     ListEquipeComponent,
-    EditEquipeComponent
+    EditEquipeComponent,
+    AfficherEquipeComponent,
+    EquipeItemComponent
   ]
 })
 export class EquipeModule { }
