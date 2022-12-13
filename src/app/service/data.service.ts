@@ -3,6 +3,8 @@ import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Departement } from '../models/Departement';
 import { Equipe } from '../models/equipe'; 
+import { Universite } from '../models/Universite';
+import { Contrat } from '../models/contrat';
 
 
 @Injectable({
@@ -52,4 +54,38 @@ deleteDepartement(idDepart:any){
 getDepartementById(idDepart:any) {
   return this.http.get(this.getdepartementByIdUrl+idDepart);
 }
+adduniversite(universite?: Universite): Observable<Object>{
+  return this.http.post<Object>('http://localhost:8082/universite/' ,universite) ;
+}
+retriveAllUniversite() {
+  return this.http.get('http://localhost:8082/universite/');
+}
+deleteUniversite(idUniversite:any){
+  return this.http.delete('http://localhost:8082/universite/'+idUniversite);
+}
+getById(idUniversite:any) {
+  return this.http.get('http://localhost:8082/universite/'+idUniversite);
+}
+updateUniversite(data: any){
+  return this.http.put('http://localhost:8082/universite/',data) ;
+}
+
+addContrat(contrat?:Contrat): Observable<Object> {
+  return this.http.post<Object>('http://localhost:8082/contrat/',contrat);
+  }
+  
+  getAllContrats() {
+    return this.http.get('http://localhost:8082/contrat/');
+  }
+  
+  UpdateContrat(contrat:Contrat){
+  return this.http.put('http://localhost:8082/contrat/',contrat);
+  }
+  
+  deleteContrat(idContrat:any){
+    return this.http.delete('http://localhost:8082/contrat/'+idContrat);
+  }
+  getContratById(idContrat:any) {
+    return this.http.get('http://localhost:8082/contrat/'+idContrat);
+  }
 }
