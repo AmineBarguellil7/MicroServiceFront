@@ -18,6 +18,13 @@ const routes: Routes = [{path:'', redirectTo:"home", pathMatch:"full"},
 },
 {path : 'contrat' , component : ContratComponent },
 {path :'',loadChildren:()=> import('./contrat/contrat.module').then (m=>m.ContratModule)},
+{
+  path: "etudiants",
+  loadChildren: () =>
+    import("./etudiant/etudiant.module").then(
+      (m) => m.EtudiantModule
+    ),
+},
 ];
 
 @NgModule({

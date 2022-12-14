@@ -5,6 +5,7 @@ import { Departement } from '../models/Departement';
 import { Equipe } from '../models/equipe'; 
 import { Universite } from '../models/Universite';
 import { Contrat } from '../models/contrat';
+import { Etudiant } from '../models/Etudiant';
 
 
 @Injectable({
@@ -88,4 +89,24 @@ addContrat(contrat?:Contrat): Observable<Object> {
   getContratById(idContrat:any) {
     return this.http.get('http://localhost:8082/contrat/'+idContrat);
   }
+  addEtudiant(etudiant:Etudiant){
+    console.log("Test Service");
+   return  this.http.post<Object>('http://localhost:8082/etudiant/',etudiant);
+  
+  }public GetAllEtudiants(): Observable<Etudiant[]> {
+    return this.http.get<Etudiant[]>('http://localhost:8082/etudiant/');
+  }
+  deleteEtudiant(etudiant:Etudiant):Observable<Etudiant>{
+    console.log("delete etudiant");
+    return this.http.delete<Etudiant>( 'http://localhost:8082/etudiant/'+etudiant.id) }
+  updateEtudiant(etudiant:Etudiant):Observable<Etudiant>{
+  
+      return this.http.put<Etudiant>('http://localhost:8082/etudiant/',etudiant);
+      console.log("update etudiant")
+    }
+    getEtudiant(id:number):Observable<Etudiant>{
+  
+      return this.http.get<Etudiant>('http://localhost:8082/etudiant/'+id);
+      console.log("get etudiant");
+    }
 }
