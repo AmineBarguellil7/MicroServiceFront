@@ -43,7 +43,8 @@
       <div class="alert alert-danger" *ngIf="e.invalid && e.touched">nombre de departement invalide</div>
       <div class="form-group">
         <label for="" class="inline-block mb-2 progress-bar progress-bar-striped progress-bar-animated">Email</label>
-        <input type="" name="email" class="form-control" ngModel required #r="ngModel" [(ngModel)]="universite.email">
+        <input type="" name="email" class="form-control" ngModel required #r="ngModel" [(ngModel)]="universite.email" 
+        placeholder="Ex. pat@example.com">
       </div>
       <div class="alert alert-danger" *ngIf="r.invalid && r.touched">email invalide</div>
       <div class="form-group">

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/service/data.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list-universite',
@@ -12,17 +13,25 @@ export class ListUniversiteComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.getEquipes();
+    this.getuniversites();
   }
-  getEquipes(){
+  getuniversites(){
     this.dataService.retriveAllUniversite().subscribe(res => {
       this.universite=res;
     }
       );}
     deleteuniversite(id:any) {
       this.dataService.deleteUniversite(id).subscribe(res => {
-      this.getEquipes();
+      this.getuniversites();
       });
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Supprimer avec succès',
+        showConfirmButton: false,
+        timer: 1000
+      });
+     
     }
-  
-}
+
+  }

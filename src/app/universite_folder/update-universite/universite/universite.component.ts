@@ -2,6 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators, NgForm, MaxLengthValidator } from '@angular/forms';
 
 import { EventEmitter } from 'stream';
+import Swal from 'sweetalert2';
 import { Universite } from '../../../models/Universite';
 import { DataService } from '../../../service/data.service';
 
@@ -26,6 +27,14 @@ export class UniversiteComponent implements OnInit {
   }
   submit(f: NgForm){
     this.dataService.adduniversite(this.universite).subscribe(res => {this.data=res;console.log(this.data);
+    })
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Ajout avec succés',
+      showConfirmButton: false,
+      timer: 1000
+      
     })
   }
    
