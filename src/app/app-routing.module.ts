@@ -26,6 +26,10 @@ const routes: Routes = [{path:'', redirectTo:"home", pathMatch:"full"},
     import("./etudiant/etudiant.module").then(
       (m) => m.EtudiantModule
     ),
+
+},
+{ path: 'events', loadChildren: () => import('./events/events.module').then(m => m.EventsModule) },
+
 },{path : 'AddOrder' , component : AddOrderComponent },
 { path: 'orderlist', component: OrderListComponent },
 ];
