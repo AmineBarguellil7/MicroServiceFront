@@ -15,6 +15,8 @@ import { AfficheUniversiteComponent } from './universite_folder/update-universit
 import { AddStoreComponent } from './Store/add-store/add-store.component';
 import { ListStoreComponent } from './Store/list-store/list-store.component';
 import { EditStoreComponent } from './Store/edit-store/edit-store.component';
+import { AddOrderComponent } from './order_folder/addorder/addorder.component';
+import { OrderListComponent } from './order_folder/order-list/order-list.component';
 
 
 
@@ -35,6 +37,8 @@ import { EditStoreComponent } from './Store/edit-store/edit-store.component';
     AddStoreComponent,
     ListStoreComponent,
     EditStoreComponent,
+    AddOrderComponent,
+    OrderListComponent,
     
   ],
   imports: [
