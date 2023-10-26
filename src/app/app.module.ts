@@ -17,6 +17,7 @@ import { ListStoreComponent } from './Store/list-store/list-store.component';
 import { EditStoreComponent } from './Store/edit-store/edit-store.component';
 import { AddOrderComponent } from './order_folder/addorder/addorder.component';
 import { OrderListComponent } from './order_folder/order-list/order-list.component';
+import { ModifyOrderComponent } from './order_folder/modifyorder/modifyorder.component';
 
 
 
@@ -39,6 +40,7 @@ import { OrderListComponent } from './order_folder/order-list/order-list.compone
     EditStoreComponent,
     AddOrderComponent,
     OrderListComponent,
+    ModifyOrderComponent,
     
   ],
   imports: [

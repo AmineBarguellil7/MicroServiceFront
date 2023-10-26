@@ -183,4 +183,16 @@ addContrat(contrat?:Contrat): Observable<Object> {
     // Send a DELETE request to remove the order
     return this.http.delete(url);
   }
+  modifyOrder(order: Order): Observable<any> {
+    const url = `http://localhost:8083/order/updateOrder`; // Adjust the URL structure as per your API
+    // Assuming you have an `id` property in your Order model
+
+    // Send a PUT request to update the order
+    return this.http.put(url, order);
+  }
+  getOrderById(orderId: string): Observable<Order> {
+    const url = `http://localhost:8083/order/${orderId}`; // Adjust the URL structure as per your API
+
+    return this.http.get<Order>(url);
+  }
 }

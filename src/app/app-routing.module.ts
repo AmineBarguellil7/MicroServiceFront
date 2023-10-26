@@ -5,6 +5,7 @@ import { AfficherEquipeComponent } from './equipe/afficher-equipe/afficher-equip
 import { OrderListComponent } from './order_folder/order-list/order-list.component';
 import { AddOrderComponent } from './order_folder/addorder/addorder.component';
 import { ListeProductComponent } from './product/afficherList/liste-product.component';
+import { ModifyOrderComponent } from './order_folder/modifyorder/modifyorder.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -45,8 +46,9 @@ const routes: Routes = [
 },
 { path: 'events', loadChildren: () => import('./events/events.module').then(m => m.EventsModule) },
 
-},{path : 'AddOrder' , component : AddOrderComponent },
+{path : 'AddOrder' , component : AddOrderComponent },
 { path: 'orderlist', component: OrderListComponent },
+{ path: 'modifyorder/:id', component: ModifyOrderComponent }
 ];
 
 @NgModule({
