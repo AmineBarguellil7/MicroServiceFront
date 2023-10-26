@@ -6,7 +6,7 @@ import { Equipe } from '../models/equipe';
 import { Universite } from '../models/Universite';
 import { Contrat } from '../models/contrat';
 import { Etudiant } from '../models/Etudiant';
-import { Store } from '../models/store';
+import {Product } from '../models/Product';import { Store } from '../models/store';
 import { Order } from '../models/order';
 
 
@@ -18,11 +18,23 @@ export class DataService {
   public AjoutarticleUrl='http://localhost:8082/article/addArticle';
   public UpdatearticleUrl="http://localhost:8082/article/updateArticle";
   public DeletearticleUrl="http://localhost:8082/article/";
-  public getarticleByIdUrl="http://localhost:8082/article/"
+  public getarticleByIdUrl="http://localhost:8082/article/";
+
+
+    private addProductUrl = 'http://localhost:8082/product/add';
+    private getProductUrl = 'http://localhost:8082/product';
+    private updateProductUrl = 'http://localhost:8082/product/update';
+    private deleteProductUrl = 'http://localhost:8082/product/delete';
+    private getProductByIdUrl = 'http://localhost:8082/product';
+  
+
 
   
   public ahmedUrl = 'http://localhost:8082/equipe';
   constructor(private http:HttpClient) { }
+
+
+
 addEquipe(equipe?: Equipe): Observable<Object>{
   return this.http.post<Object>(`${this.ahmedUrl}`, equipe) ;
 }
@@ -37,6 +49,27 @@ updateEquipe(data: any){
 }
 getEquipeById(idT: any){
   return this.http.get('http://localhost:8082/equipe/'+idT) ;
+}
+
+
+addProduct(product: Product): Observable<Object> {
+  return this.http.post<Object>(this.addProductUrl, product);
+}
+
+getProducts() {
+  return this.http.get(this.getProductUrl);
+}
+
+updateProduct(product: Product) {
+  return this.http.put(this.updateProductUrl, product);
+}
+
+deleteProduct(productId: any) {
+  return this.http.delete(this.deleteProductUrl + productId);
+}
+
+getProductById(productId: any) {
+  return this.http.get(this.getProductByIdUrl + productId);
 }
 
 
@@ -77,6 +110,8 @@ deleteArticle(idArc:any){
 getArticleById(idArc:any) {
   return this.http.get(this.getarticleByIdUrl+idArc);
 }
+
+
 adduniversite(universite?: Universite): Observable<Object>{
   return this.http.post<Object>('http://localhost:8082/universite/' ,universite) ;
 }
