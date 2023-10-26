@@ -25,6 +25,7 @@ const routes: Routes = [{path:'', redirectTo:"home", pathMatch:"full"},
       (m) => m.EtudiantModule
     ),
 },
+{ path: 'events', loadChildren: () => import('./events/events.module').then(m => m.EventsModule) },
 ];
 
 @NgModule({
