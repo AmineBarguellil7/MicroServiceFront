@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContratComponent } from './contrat/contrat.component';
 import { AfficherEquipeComponent } from './equipe/afficher-equipe/afficher-equipe.component';
+import { OrderListComponent } from './order_folder/order-list/order-list.component';
+import { AddOrderComponent } from './order_folder/addorder/addorder.component';
 
 
 
@@ -24,8 +26,12 @@ const routes: Routes = [{path:'', redirectTo:"home", pathMatch:"full"},
     import("./etudiant/etudiant.module").then(
       (m) => m.EtudiantModule
     ),
+
 },
 { path: 'events', loadChildren: () => import('./events/events.module').then(m => m.EventsModule) },
+
+},{path : 'AddOrder' , component : AddOrderComponent },
+{ path: 'orderlist', component: OrderListComponent },
 ];
 
 @NgModule({
