@@ -1,0 +1,23 @@
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="addForm" (ngSubmit)="OnSubmit()">
+        <div class="form-group">
+          <label for="evaluation">Note</label>
+          <input type="text" id="evaluation" class="form-control" formControlName="evaluation">
+          <span class="help-block" *ngIf="addForm.get('evaluation').hasError('required') && addForm.get('evaluation').touched">
+            Entrez une note !
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="commentaire">Commentaire</label>
+          <input type="text" id="commentaire" class="form-control" formControlName="commentaire">
+          <span class="help-block" *ngIf="addForm.get('commentaire').hasError('required') && addForm.get('commentaire').touched">
+            Entrez un commentaire !
+          </span>
+        </div>
+        <button class="btn btn-primary" type="submit">Envoyer</button>
+      </form>
+    </div>
+  </div>
+</div>

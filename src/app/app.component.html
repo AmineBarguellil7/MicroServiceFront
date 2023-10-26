@@ -52,7 +52,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="assets/img/logo.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Terminators</span>
+      <span class="brand-text font-weight-light">FlickMasters</span>
     </a>
 
     <!-- Sidebar -->
@@ -80,7 +80,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Etudiant
+                Boutique
                 <i class="fas fa-angle-left right"></i>
                 <span class="badge badge-info right"></span>
               </p>
@@ -89,13 +89,13 @@
               <li class="nav-item">
                 <a routerLink="etudiants/addetudiant" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Ajouter Etudiant</p>
+                  <p>Ajouter boutique</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a routerLink="etudiants" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Afficher Liste d'Etudiants</p>
+                  <p>Afficher Liste des boutiques</p>
                 </a>
               </li>
     
@@ -105,7 +105,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Equipe
+                Produit
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -113,21 +113,16 @@
               <li class="nav-item">
                 <a routerLink="addequipe" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Ajouter Equipe</p>
+                  <p>Ajouter produit</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a routerLink="equipes" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Afficher Liste d'Equipes</p>
+                  <p>Afficher Liste des produits</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a routerLink="listequipe" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Liste d'equipes</p>
-                </a>
-              </li>
+              
 
             </ul>
           </li>
@@ -135,7 +130,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
-                Departement
+                Evenement
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -143,63 +138,48 @@
               <li class="nav-item">
                 <a routerLink="/departement" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Ajouter Departement</p>
+                  <p>Ajouter evenement</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a routerLink="/listeDepartements" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Afficher Liste Departements</p>
+                  <p>Afficher Liste evenements</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a routerLink="/departement-reactive" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Ajouter Departement-Reactive</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a routerLink="/afficherList" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Afficher Liste</p>
-                </a>
-              </li>
+             
+              
             </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Contrat
+                Avis
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a  routerLink="ajoutercontrat" class="nav-link">
+                <a  routerLink="/addavis" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Ajouter Contrat</p>
+                  <p>Ajouter Avis</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a routerLink="contrat" class="nav-link">
+                <a routerLink="/showavis" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Afficher Table Contrats</p>
+                  <p>Afficher Table Avis</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a routerLink="listec" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Afficher Liste Contrats</p>
-                </a>
-              </li>
+             
             </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Université
+                Commande
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -207,21 +187,40 @@
               <li class="nav-item">
                 <a routerLink="/adduniversite" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Ajouter Université</p>
+                  <p>Ajouter Commande</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a routerLink="/universites" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Afficher Table Universités</p>
+                  <p>Afficher Table Commandes</p>
+                </a>
+              </li>
+             
+            </ul>
+          </li>      
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Article
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a routerLink="/adduniversite" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ajouter Article</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a routerLink="/listeuniversite" class="nav-link">
+                <a routerLink="/universites" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Afficher Liste universites</p>
+                  <p>Afficher Table Articles</p>
                 </a>
               </li>
+             
             </ul>
           </li>        
         </ul>

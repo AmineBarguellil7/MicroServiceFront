@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <a  class="list-group-item list-group-item-action  active" type="button">
+                <div class="d-flex w-100 justify-content-between">
+                    <p>Id  avis</p>
+                  <h5 class="mb-1">Note</h5>
+                  <small>Commentaire</small>
+                </div>
+                <p class="mb-1">Date de soumission d'avis</p>
+               
+              </a>
+            <app-avisitem *ngFor="let avis of avisList | paginate: { itemsPerPage: 5, currentPage: p }" [avis]="avis" (avisDeleted)="OnAvisDeleted()"></app-avisitem>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </div>
+</div>
+

@@ -6,12 +6,11 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NotFoundComponent } from './departement/not-found/not-found.component';
+
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2OrderModule } from 'ng2-order-pipe';
-import { UniversiteItemComponent } from './universite_folder/update-universite/universite-item/universite-item.component';
-import { AfficheUniversiteComponent } from './universite_folder/update-universite/affiche-universite/affiche-universite.component';
+
 
 
 
@@ -26,9 +25,7 @@ import { AfficheUniversiteComponent } from './universite_folder/update-universit
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent,
-    UniversiteItemComponent,
-    AfficheUniversiteComponent,
+    
     
   ],
   imports: [
