@@ -6,6 +6,7 @@ import { Equipe } from '../models/equipe';
 import { Universite } from '../models/Universite';
 import { Contrat } from '../models/contrat';
 import { Etudiant } from '../models/Etudiant';
+import { Store } from '../models/store';
 
 
 @Injectable({
@@ -36,6 +37,24 @@ updateEquipe(data: any){
 getEquipeById(idT: any){
   return this.http.get('http://localhost:8082/equipe/'+idT) ;
 }
+
+
+addStore(store?: Store): Observable<Object>{
+  return this.http.post<Object>('http://localhost:8084/store',store) ;
+}
+getStores (){
+  return this.http.get('http://localhost:8084/store') ;
+}
+deleteStore(idT: any){
+  return this.http.delete('http://localhost:8084/store/'+idT) ;
+}
+updateStore(data: any){
+  return this.http.put('http://localhost:8084/store/updatestore',data) ;
+}
+getStoreById(idT: any){
+  return this.http.get('http://localhost:8084/store/'+idT) ;
+}
+
 
 
 

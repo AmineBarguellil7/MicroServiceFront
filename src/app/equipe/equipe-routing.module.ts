@@ -4,25 +4,28 @@ import { AfficherEquipeComponent } from './afficher-equipe/afficher-equipe.compo
 import { EditEquipeComponent } from './edit-equipe/edit-equipe.component';
 import { EquipeComponent } from './equipe.component';
 import { ListEquipeComponent } from './list-equipe/list-equipe.component';
+import { AddStoreComponent } from '../Store/add-store/add-store.component';
+import { ListStoreComponent } from '../Store/list-store/list-store.component';
+import { EditStoreComponent } from '../Store/edit-store/edit-store.component';
 
 const routes: Routes = [
   {
     path: 'addequipe',
-    component: EquipeComponent
+    component: AddStoreComponent,
 },
 {
   path: 'equipes',
-  component: ListEquipeComponent,
+  component: ListStoreComponent,
 },
 {
-    path:'equipes/modifier/:idT', component: EditEquipeComponent,
+    path:'equipes/modifier/:idT', component: EditStoreComponent,
     children: [
       {
         path:'refresh', component: ListEquipeComponent
       },]
   },
   {
-    path:'listequipe', component: AfficherEquipeComponent
+    path:'listequipe', component: ListStoreComponent
   }
 ];
 
