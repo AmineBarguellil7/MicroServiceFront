@@ -8,6 +8,7 @@ import { ListeProductComponent } from './product/afficherList/liste-product.comp
 import { AddProductComponent } from './product/ajoutProduct/ajout-product.component';
 
 
+import { ModifyOrderComponent } from './order_folder/modifyorder/modifyorder.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -45,14 +46,12 @@ const routes: Routes = [
     path: 'etudiants',
     loadChildren: () =>
       import('./etudiant/etudiant.module').then((m) => m.EtudiantModule),
-  },
-  {
-    path: 'events',
-    loadChildren: () =>
-      import('./events/events.module').then((m) => m.EventsModule),
-  },
-  { path: 'AddOrder', component: AddOrderComponent },
-  { path: 'orderlist', component: OrderListComponent },
+  
+},
+{ path: 'events', loadChildren: () => import('./events/events.module').then(m => m.EventsModule) },
+
+},{path : 'AddOrder' , component : AddOrderComponent },
+{ path: 'orderlist', component: OrderListComponent },
 ];
 
 @NgModule({
