@@ -5,6 +5,9 @@ import { AfficherEquipeComponent } from './equipe/afficher-equipe/afficher-equip
 import { OrderListComponent } from './order_folder/order-list/order-list.component';
 import { AddOrderComponent } from './order_folder/addorder/addorder.component';
 import { ListeProductComponent } from './product/afficherList/liste-product.component';
+import { AddProductComponent } from './product/ajoutProduct/ajout-product.component';
+
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,6 +17,7 @@ const routes: Routes = [
       import('./article/article.module').then((m) => m.ArticleModule),
   },
   { path: 'products', component: ListeProductComponent },
+  { path: 'addproduct', component: AddProductComponent },
 
   {
     path: '',
@@ -41,12 +45,14 @@ const routes: Routes = [
     path: 'etudiants',
     loadChildren: () =>
       import('./etudiant/etudiant.module').then((m) => m.EtudiantModule),
-  
-},
-{ path: 'events', loadChildren: () => import('./events/events.module').then(m => m.EventsModule) },
-
-},{path : 'AddOrder' , component : AddOrderComponent },
-{ path: 'orderlist', component: OrderListComponent },
+  },
+  {
+    path: 'events',
+    loadChildren: () =>
+      import('./events/events.module').then((m) => m.EventsModule),
+  },
+  { path: 'AddOrder', component: AddOrderComponent },
+  { path: 'orderlist', component: OrderListComponent },
 ];
 
 @NgModule({

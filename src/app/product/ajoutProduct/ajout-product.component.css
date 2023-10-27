@@ -1,0 +1,66 @@
+/* Style the outer container */
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Style the heading */
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Style form groups */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Style labels */
+label {
+  display: block;
+  font-weight: bold;
+}
+
+/* Style text inputs */
+input[type="text"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Style the promo code input */
+input[type="text#promocode"] {
+  border: 1px solid #a94442; /* Red border for emphasis */
+}
+
+/* Style the submit button */
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Change button color on hover */
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Error message for required fields */
+.error-message {
+  color: #a94442;
+  font-size: 14px;
+  margin-top: 5px;
+}
