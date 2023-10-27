@@ -15,24 +15,24 @@ import { Avis } from '../models/Avis';
   providedIn: 'root'
 })
 export class DataService {
-  public getarticleUrl="http://localhost:8082/article";
-  public AjoutarticleUrl='http://localhost:8082/article/addArticle';
-  public UpdatearticleUrl="http://localhost:8082/article/updateArticle";
-  public DeletearticleUrl="http://localhost:8082/article/";
-  public getarticleByIdUrl="http://localhost:8082/article/";
+  public getarticleUrl="http://localhost:8020/article";
+  public AjoutarticleUrl='http://localhost:8020/article/addArticle';
+  public UpdatearticleUrl="http://localhost:8020/article/updateArticle";
+  public DeletearticleUrl="http://localhost:8020/article/";
+  public getarticleByIdUrl="http://localhost:8020/article/";
 
 
-    private addProductUrl = 'http://localhost:8082/product/add';
-    private getProductUrl = 'http://localhost:8082/product';
-    private updateProductUrl = 'http://localhost:8082/product/update';
-    private deleteProductUrl = 'http://localhost:8082/product/delete';
-    private getProductByIdUrl = 'http://localhost:8082/product';
+    private addProductUrl = 'http://localhost:8024/product/add';
+    private getProductUrl = 'http://localhost:8024/product';
+    private updateProductUrl = 'http://localhost:8024/product/update';
+    private deleteProductUrl = 'http://localhost:8024/product/delete';
+    private getProductByIdUrl = 'http://localhost:8024/product';
   
-    public getavisUrl="http://localhost:8084/avis/all";
-  public AjoutavisUrl='http://localhost:8084/avis/add';
-  public UpdateavisUrl=" http://localhost:8084/avis/update";
-  public DeleteavisUrl="http://localhost:8084/avis/delete";
-  public getavisByIdUrl="http://localhost:8084/avis/get"
+    public getavisUrl="http://localhost:8022/avis/all";
+  public AjoutavisUrl='http://localhost:8022/avis/add';
+  public UpdateavisUrl=" http://localhost:8022/avis/update";
+  public DeleteavisUrl="http://localhost:8022/avis/delete";
+  public getavisByIdUrl="http://localhost:8022/avis/get"
 
 
 
@@ -81,19 +81,19 @@ getProductById(productId: any) {
 
 
 addStore(store?: Store): Observable<Object>{
-  return this.http.post<Object>('http://localhost:8084/store',store) ;
+  return this.http.post<Object>('http://localhost:8025/store',store) ;
 }
 getStores (){
-  return this.http.get('http://localhost:8084/store') ;
+  return this.http.get('http://localhost:8025/store') ;
 }
 deleteStore(idT: any){
-  return this.http.delete('http://localhost:8084/store/'+idT) ;
+  return this.http.delete('http://localhost:8025/store/'+idT) ;
 }
 updateStore(data: any){
-  return this.http.put('http://localhost:8084/store/updatestore',data) ;
+  return this.http.put('http://localhost:8025/store/updatestore',data) ;
 }
 getStoreById(idT: any){
-  return this.http.get('http://localhost:8084/store/'+idT) ;
+  return this.http.get('http://localhost:8025/store/'+idT) ;
 }
 
 
@@ -177,28 +177,28 @@ addContrat(contrat?:Contrat): Observable<Object> {
       // Adjust the URL as per your API
  
      // Send a GET request to the server to fetch orders
-     return this.http.get<Order[]>(`http://localhost:8083/order`);
+     return this.http.get<Order[]>(`http://localhost:8021/order`);
      
    }
    addOrder(order: Order): Observable<any> {
-     return this.http.post(`http://localhost:8083/order/addOrder`, order);
+     return this.http.post(`http://localhost:8021/order/addOrder`, order);
    }
    deleteOrder(order: Order): Observable<any> {
-    const url = `http://localhost:8083/order/${order.id}`; // Adjust the URL structure as per your API
+    const url = `http://localhost:8021/order/${order.id}`; // Adjust the URL structure as per your API
     // Assuming you have an `id` property in your Order model
 
     // Send a DELETE request to remove the order
     return this.http.delete(url);
   }
   modifyOrder(order: Order): Observable<any> {
-    const url = `http://localhost:8083/order/updateOrder`; // Adjust the URL structure as per your API
+    const url = `http://localhost:8021/order/updateOrder`; // Adjust the URL structure as per your API
     // Assuming you have an `id` property in your Order model
 
     // Send a PUT request to update the order
     return this.http.put(url, order);
   }
   getOrderById(orderId: string): Observable<Order> {
-    const url = `http://localhost:8083/order/${orderId}`; // Adjust the URL structure as per your API
+    const url = `http://localhost:8021/order/${orderId}`; // Adjust the URL structure as per your API
 
     return this.http.get<Order>(url);
   }
@@ -217,7 +217,7 @@ addContrat(contrat?:Contrat): Observable<Object> {
     
     
     deleteAvis(avis: Avis): Observable<any> {
-      const url = `http://localhost:8084/avis/delete/${avis.idAvis}`; // Adjust the URL structure as per your API
+      const url = `http://localhost:8022/avis/delete/${avis.idAvis}`; // Adjust the URL structure as per your API
       // Assuming you have an `id` property in your Order model
     
       // Send a DELETE request to remove the order
