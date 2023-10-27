@@ -48,8 +48,11 @@ const routes: Routes = [
 
 {path : 'AddOrder' , component : AddOrderComponent },
 { path: 'orderlist', component: OrderListComponent },
-{ path: 'modifyorder/:id', component: ModifyOrderComponent }
+{ path: 'modifyorder/:id', component: ModifyOrderComponent },
+
+{path:"",loadChildren: () => import('./avis/avis.module').then(m => m.AvisModule)},
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
