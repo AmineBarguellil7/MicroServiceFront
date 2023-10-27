@@ -8,6 +8,7 @@ import { Contrat } from '../models/contrat';
 import { Etudiant } from '../models/Etudiant';
 import {Product } from '../models/Product';import { Store } from '../models/store';
 import { Order } from '../models/order';
+import { Avis } from '../models/Avis';
 
 
 @Injectable({
@@ -27,6 +28,12 @@ export class DataService {
     private deleteProductUrl = 'http://localhost:8082/product/delete';
     private getProductByIdUrl = 'http://localhost:8082/product';
   
+    public getavisUrl="http://localhost:8084/avis/all";
+  public AjoutavisUrl='http://localhost:8084/avis/add';
+  public UpdateavisUrl=" http://localhost:8084/avis/update";
+  public DeleteavisUrl="http://localhost:8084/avis/delete";
+  public getavisByIdUrl="http://localhost:8084/avis/get"
+
 
 
   
@@ -195,4 +202,34 @@ addContrat(contrat?:Contrat): Observable<Object> {
 
     return this.http.get<Order>(url);
   }
+  addAvis(avis:Avis):Observable<Object> {
+    return this.http.post<Object>(this.AjoutavisUrl,avis);
+    }
+    
+    getListAvis() {
+      return this.http.get(this.getavisUrl);
+    }
+    
+    UpdateAvis(avis){
+    return this.http.put(this.UpdateavisUrl,avis);
+    }
+    
+    
+    
+    deleteAvis(avis: Avis): Observable<any> {
+      const url = `http://localhost:8084/avis/delete/${avis.idAvis}`; // Adjust the URL structure as per your API
+      // Assuming you have an `id` property in your Order model
+    
+      // Send a DELETE request to remove the order
+      return this.http.delete(url);
+    }
+    
+    
+    
+    
+    
+    getAvisById(idAvis:any) {
+      return this.http.get(this.getavisByIdUrl+idAvis);
+    }
+    
 }
