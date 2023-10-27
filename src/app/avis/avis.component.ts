@@ -18,18 +18,7 @@ export class AvisComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.addForm);
   }
-  addDepartement() {
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Ajout avec succés',
-      showConfirmButton: false,
-      timer: 1000
-    })
-    console.log(this.avis);
-    this.avisService.addAvis(this.avis).subscribe();
-    this.addForm.reset();
-  }
+
   afficherListeAvis() {
     this.router.navigate(['/listeAvis']);
   }

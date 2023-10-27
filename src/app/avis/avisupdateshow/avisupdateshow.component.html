@@ -1,87 +1,43 @@
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<br>
-
-
-<div class="dropdown-hover w3-right">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Tri Croissant
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-
-    <button class="dropdown-item" type="button" (click)="AfficherList()">afficher liste complete</button>
-  </div>
-</div>
-
-<div class="d-flex justify-content-center align-items-center container">
-<div class="row">
-<div>
-<table class="table table-striped table-dark">
-    <thead>
-        <tr>
-            <td>IdAvis</td>
-            <td>Note</td>
-            <td>Commentaire</td>
-            <td>Date de soumission d'avis</td>
-          
-            <td>Modifier</td>
-            <td>Supprimer</td>
-            <td>Afficher Detail avis</td>
-        </tr>
-    </thead>
-    <tbody *ngFor="let avis of listAvis">   
-    <tr>
-        <td>{{avis.idAvis}}</td>
-        <td>{{avis.evaluation}}</td>
-        <td>{{avis.commentaire}}</td>
-        <td>{{avis.date_soumission_avis}}</td>
-      
-        <td><button class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" (click)="onUpdateAvis(avis)">
-            Modifier
-        </button></td>
-        <td><button class="btn btn-danger" (click)="deleteAvis(avis)">Supprimer</button></td>
-        <td><button class="btn btn-info" (click)="ShowDetails(avis.idAvis,avis.evaluation,avis.commentaire,avis.date_soumission_avis)">Afficher Details avis</button></td>
-    </tr>
-    </tbody>
-</table>
-<router-outlet></router-outlet>
-</div>
-</div>
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modifier avis</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <form  #updateForm="ngForm" (ngSubmit)="ModifierAvis()">
-                <div class="form-group">
-                <label for="evaluation">evaluation: </label>
-                <input type="text" class="form-control" #evaluation="ngModel" name="evaluation" [(ngModel)]="avisAmodifier.evaluation" required  minlength="3"   placeholder="entrer une note" >
-                <span class="help-block" *ngIf="!evaluation.valid && evaluation.touched" style="color:red;">entrer une note valide!</span>
-                <br>
-                <label for="emplacement">commentaire:</label>
-                <input type="text" class="form-control" name="commentaire" [(ngModel)]="avisAmodifier.commentaire" required minlength="3" pattern="[a-zA-Z0-9]*"  #commentaire="ngModel"  placeholder="entrer uncommentaire" >
-                <span class="help-block" *ngIf="!commentaire.valid && commentaire.touched" style="color:red;">entrer un commentaire valide!</span>
-                <br>
-              
-               
-                <button [disabled]="!updateForm.valid" type="submit" class="btn btn-dark" id="B3">mettre à jour</button>
-                </div>
-            </form>
-        </div>
+<div class="d-flex justify-content-center align-items-center container mt-5">
+  <form #f="ngForm" (ngSubmit)="f.form.valid && update()">
+    <div ngModelGroup="storeInfo" #sg="ngModelGroup">
+      <div class="form-group">
+        <label>
+          Note:
+          <input type="text" name="evaluation"
+            #name="ngModel"  [(ngModel)]="avis.evaluation" required 
+            class="form-control"  id="evaluation" placeholder="Enter Note !"/>
+        </label>
       </div>
+
+   
+      
+      
+
+      <div class="form-group">
+        <label>
+          Commentaire:
+          <input type="text" name="commentaire"
+            #description="ngModel"  [(ngModel)]="avis.commentaire "
+            class="form-control"  id="commentaire" placeholder="Enter Commentaire"/>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label>
+          Date:
+          <input type="date" name="date_soumission_avis"
+            #location="ngModel"  [(ngModel)]="avis.date_soumission_avis"
+            class="form-control"  id="date_soumission_avis" placeholder="Enter date"/>
+        </label>
+      </div>
+
+     
+
+      
     </div>
-  </div>
 
-
-
-
-
-
+    <button type="submit" class="btn-primary btn-sm">Submit</button>
+  </form>
+</div>
+<router-outlet></router-outlet>

@@ -17,15 +17,15 @@ export class AvisAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.addForm=new FormGroup({
-      'evaluation':new FormControl('0',Validators.required),
-      'commentaire':new FormControl('null',Validators.required)
-    
+      'evaluation':new FormControl('',Validators.required),
+      'commentaire':new FormControl('',Validators.required),
+      'date_soumission_avis':new FormControl('',Validators.required)
     })
   }
   OnSubmit() {
     this.avis.evaluation=this.addForm.value.evaluation;
     this.avis.commentaire=this.addForm.value.commentaire;
-  
+    this.avis.date_soumission_avis=this.addForm.value.date_soumission_avis;
     Swal.fire({
       position: 'center',
       icon: 'success',
