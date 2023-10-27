@@ -4,8 +4,9 @@ import { ContratComponent } from './contrat/contrat.component';
 import { AfficherEquipeComponent } from './equipe/afficher-equipe/afficher-equipe.component';
 import { OrderListComponent } from './order_folder/order-list/order-list.component';
 import { AddOrderComponent } from './order_folder/addorder/addorder.component';
-import { ListeProductComponent } from './product/afficherList/liste-product.component';
 import { ModifyOrderComponent } from './order_folder/modifyorder/modifyorder.component';
+import { ListeProductComponent } from './product/afficherList/liste-product.component';
+import { AddProductComponent } from './product/ajoutProduct/ajout-product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
       import('./article/article.module').then((m) => m.ArticleModule),
   },
   { path: 'products', component: ListeProductComponent },
+  { path: 'addproduct', component: AddProductComponent },
 
   {
     path: '',
@@ -42,13 +44,16 @@ const routes: Routes = [
     path: 'etudiants',
     loadChildren: () =>
       import('./etudiant/etudiant.module').then((m) => m.EtudiantModule),
-  
-},
-{ path: 'events', loadChildren: () => import('./events/events.module').then(m => m.EventsModule) },
+  },
+  {
+    path: 'events',
+    loadChildren: () =>
+      import('./events/events.module').then((m) => m.EventsModule),
+  },
 
-{path : 'AddOrder' , component : AddOrderComponent },
-{ path: 'orderlist', component: OrderListComponent },
-{ path: 'modifyorder/:id', component: ModifyOrderComponent }
+  { path: 'AddOrder', component: AddOrderComponent },
+  { path: 'orderlist', component: OrderListComponent },
+  { path: 'modifyorder/:id', component: ModifyOrderComponent },
 ];
 
 @NgModule({
