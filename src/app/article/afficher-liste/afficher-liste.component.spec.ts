@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AfficherListComponent } from './afficher-list.component';
+import { AfficherListeComponent } from './afficher-liste.component';
 
-describe('AfficherListComponent', () => {
-  let component: AfficherListComponent;
-  let fixture: ComponentFixture<AfficherListComponent>;
+describe('AfficherListeComponent', () => {
+  let component: AfficherListeComponent;
+  let fixture: ComponentFixture<AfficherListeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AfficherListComponent ]
+      declarations: [ AfficherListeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AfficherListComponent);
+    fixture = TestBed.createComponent(AfficherListeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

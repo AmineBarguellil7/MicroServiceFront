@@ -1,0 +1,10 @@
+<h1>Data Received</h1>
+<button class="btn btn-primary" (click)="sendRequest()">Send</button>
+
+
+<hr>
+<br>
+<div *ngIf="data">
+  <p>Article: {{ data[0].article }}</p>
+  <p>Auteur: {{ data[0].auteur }}</p>
+</div>
