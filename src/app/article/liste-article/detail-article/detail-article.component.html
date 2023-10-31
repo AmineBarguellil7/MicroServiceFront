@@ -1,16 +1,12 @@
 <div class="container">
+    <h4>Les articles filtrés sont :</h4>
     <div class="row">
-    <div class="col-md-5">
-       <h4>Les details de l'article sont :</h4> 
-       <a href="" class="list-group-item clearfix">
-        <div class="pull-left">
-            <h4>Le titre de l'article: {{article.titreArticle}}</h4>
-            <p>le contenu de l'article: {{article.contenu}}</p>
+        <div class="col-md-4" *ngFor="let article of SearchData">
+            <div class="list-group-item clearfix mb-3">
+                <h4>Le titre de l'article: {{article.titreArticle}}</h4>
+                <p>Le contenu de l'article: {{article.contenu}}</p>
+                <p>L'auteur de l'article: {{article.auteur}}</p>
+            </div>
         </div>
-        <span class="pull-right">
-            <p>L'auteur de l'article: {{article.auteur}}</p>
-        </span>
-       </a>
-    </div>
     </div>
 </div>

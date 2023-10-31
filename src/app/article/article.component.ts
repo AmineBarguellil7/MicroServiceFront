@@ -34,7 +34,7 @@ export class ArticleComponent implements OnInit {
   }
 
   afficherListeArc() {
-    this.router.navigate(['/listeArticles']);
+    this.router.navigate(['/afficher-liste']);
   }
 
 }

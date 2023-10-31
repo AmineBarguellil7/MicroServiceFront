@@ -16,7 +16,8 @@ import { Avis } from '../models/Avis';
 })
 export class DataService {
   public getarticleUrl="http://localhost:8020/article";
-  public AjoutarticleUrl='http://localhost:8020/article/addArticle';
+  // public AjoutarticleUrl='http://localhost:8020/article/addArticle';
+  public AjoutarticleUrl='http://localhost:9093/article/addArticle';
   public UpdatearticleUrl="http://localhost:8020/article/updateArticle";
   public DeletearticleUrl="http://localhost:8020/article/";
   public getarticleByIdUrl="http://localhost:8020/article/";

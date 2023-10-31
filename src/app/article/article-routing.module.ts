@@ -8,8 +8,8 @@ import { ListeArticleComponent } from "./liste-article/liste-article.component";
 
 
 const routes:Routes=[
-{path:"listeArticles",component:ListeArticleComponent,children:[{path:":id/:titre/:contenu/:auteur",component:DetailArticleComponent}]},{path:"article",component:ArticleComponent}
-,{ path: "afficher-liste", component: AfficherListeComponent },
+{path:"listeArticles",component:ListeArticleComponent},{path:"article",component:ArticleComponent}
+,{ path: "afficher-liste", component: AfficherListeComponent,children:[{path:"search",component:DetailArticleComponent}] },
 ]
 
 @NgModule({

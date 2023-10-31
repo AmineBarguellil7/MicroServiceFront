@@ -1,10 +1,62 @@
-<h1>Data Received</h1>
-<button class="btn btn-primary" (click)="sendRequest()">Send</button>
-
-
-<hr>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <br>
-<div *ngIf="data">
-  <p>Article: {{ data[0].article }}</p>
-  <p>Auteur: {{ data[0].auteur }}</p>
+<form class="form-inline my-2 my-lg-0">
+  <button class="btn btn-info" id="SearchTitle" (click)="TestStatus()">Search By Title</button>
+  <input class="form-control mr-sm-2" type="text" placeholder="Rechercher Par titre" aria-label="Search" [(ngModel)]="titre" name="SearchInputTitre">
+
+  
+  <div class="dropdown">
+    <label for="categoryDropdown">Rechercher par categories :</label>
+    <br>
+    <select id="categoryDropdown">
+      <option value="">Sélectionner une catégorie</option>
+      <option *ngFor="let category of categories" [value]="category.nom" style="color:black;">
+        {{ category.nom }}
+      </option>
+    </select>
+  </div>
+  
+  <button class="btn btn-primary" id="categorie" (click)="searchByCategory()">Rechercher par catégorie</button>
+  
+  
+
+</form>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped table-dark">
+        <thead>
+          <tr>
+            <th>idArticle</th>
+            <th>titre</th>
+            <th>contenu</th>
+            <th>auteur</th>
+            <!-- <th>Afficher Detail article</th> -->
+          </tr>
+        </thead>
+        <tbody *ngFor="let article of data">
+          <tr *ngIf="SearchArticleById(article.id[0])">
+            <td>{{ article.id[0] }}</td>
+            <td>{{ article.titreArticle }}</td>
+            <td>{{ article.contenu }}</td>
+            <td>{{ article.auteur }}</td>
+            <!-- <td><button class="btn btn-info" (click)="ShowDetails(article.id,article.titreArticle,article.contenu,article.auteur)">Afficher Details article</button></td> -->
+          </tr>
+        </tbody>
+      </table>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
+
+
+
+
+
+
+
+
+
+

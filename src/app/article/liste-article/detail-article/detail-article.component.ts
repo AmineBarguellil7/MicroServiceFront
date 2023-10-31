@@ -11,21 +11,13 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class DetailArticleComponent implements OnInit {
 
   
-  article:{idArc:number,titreArticle:string,contenu:string,auteur:string};
+  SearchData:any;
+
   constructor(private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.article={
-      idArc:this.route.snapshot.params['id'],
-      titreArticle:this.route.snapshot.params['titre'],
-      contenu:this.route.snapshot.params['contenu'],
-      auteur:this.route.snapshot.params['auteur']
-    }
-    this.route.params.subscribe((params:Params)=>{this.article={
-      idArc:this.route.snapshot.params['id'],
-      titreArticle:this.route.snapshot.params['titre'],
-      contenu:this.route.snapshot.params['contenu'],
-      auteur:this.route.snapshot.params['auteur']
-    }})
+    this.route.queryParams.subscribe((params: Params) => {
+      this.SearchData = JSON.parse(params['searchData']); 
+    });
   }
 }
